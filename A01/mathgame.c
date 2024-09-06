@@ -15,7 +15,7 @@ int main() {
   int min = 1;
 
   printf("Welcome to Math Game!\nHow many rounds do you want to play? ");
-  scanf("%d", &response);
+  scanf("%d", &rounds);
   
   for (int i=0; i<rounds; i++) {
 	int num1 = rand() % (max - min + 1) + min;
