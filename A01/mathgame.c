@@ -9,7 +9,7 @@
 
 int main() {
 
-  int response = 0;
+  int rounds = 0;
   int correct = 0;
   int max = 9;
   int min = 1;
@@ -17,7 +17,7 @@ int main() {
   printf("Welcome to Math Game!\nHow many rounds do you want to play? ");
   scanf("%d", &response);
   
-  for (int i=0; i<response; i++) {
+  for (int i=0; i<rounds; i++) {
 	int num1 = rand() % (max - min + 1) + min;
 	int num2 = rand() % (max - min + 1) + min;
 	int answer = 0;
@@ -30,8 +30,6 @@ int main() {
 		printf("Incorrect :(\n");
   }
 
-  printf("You answered %d/%d correctly.\n", correct, response);
-
-  
+  printf("You answered %d/%d correctly.\n", correct, rounds);
 }
 
