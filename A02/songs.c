@@ -1,3 +1,9 @@
+/***************************************************
+ * songs.c
+ * Author: Rebecca Lassman
+ * Prints songs and their attributes, and allows user to edit attributes.
+ */
+
 #include <stdio.h>
 #include <string.h>
 
@@ -11,7 +17,8 @@ typedef struct song {
 
 int printSongs(song songArr[]) {
 	for(int i=0; i<3; i++) {
-        	printf("\n%d) %-20s artist: %-20s duration: %d:%d  danceability: %.2f", i, songArr[i].title, songArr[i].artist, songArr[i].durMin, songArr[i].durSec, songArr[i].dance);
+        	printf("\n%d) %-20s artist: %-20s duration: %d:%d  danceability: %.2f", 
+                       i, songArr[i].title, songArr[i].artist, songArr[i].durMin, songArr[i].durSec, songArr[i].dance);
   	}
   	printf("\n\n========================\n"); 
 	return 0;

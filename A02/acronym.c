@@ -1,3 +1,9 @@
+/***************************************************
+ * acronym.c
+ * Author: Rebecca Lassman
+ * Creates an acronym from user input.
+ */
+
 #include <stdio.h>
 #include <string.h>
 

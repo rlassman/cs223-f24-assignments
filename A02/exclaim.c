@@ -1,3 +1,9 @@
+/***************************************************
+ * exclaim.c
+ * Author: Rebecca Lassman
+ * Creates an exclamation with special characters.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
