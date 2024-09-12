@@ -3,22 +3,20 @@
 #include <string.h>
 
 int main() {
-  char symbols[4] = {'@', '!', '#', '*'};
-  int symbMin = 0;
-  int symbMax = 3; 
-  char buff[32];
+	char symbols[4] = {'@', '!', '#', '*'};
+	int symbMin = 0;
+	int symbMax = 3; 
+	char buff[32];
   
-  printf("Enter a word: ");
-  scanf(" %s", buff);
+	printf("Enter a word: ");
+	scanf(" %s", buff);
 
-  int i = 0;
-  while(i <= strlen(buff)) { //string length
-	int charval = buff[i];
-	if (charval > 96)
-		buff[i] = symbols[rand() % (symbMax - symbMin + 1) + symbMin];
-	i++;
-  }
+	for(int i=0; i <= strlen(buff); i++) {
+		int charval = buff[i];
+		if (charval > 96)
+			buff[i] = symbols[rand() % (symbMax - symbMin + 1) + symbMin];
+	}
 
-  printf("OMG! %s\n", buff);
-  return 0;
+	printf("OMG! %s\n", buff);
+	return 0;
 }
