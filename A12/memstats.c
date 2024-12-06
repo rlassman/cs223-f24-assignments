@@ -1,3 +1,9 @@
+/*----------------------------------------------
+ * Author: Rebecca Lassman
+ * Date: 12/5/24
+ * Description: Prints data about memory usage in our malloc/free.
+ ---------------------------------------------*/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -17,6 +23,33 @@ struct chunk {
 };
 
 void memstats(struct chunk* freelist, void* buffer[], int len) {
+  int totalBlocks = 0;
+  int totalMem = 0;
+  int usedBlocks = 0;
+  int freeBlocks = 0;
+  int usedMemAloc = 0;
+  int usedMem = 0;
+  int freeMem = 0;
+  while(freelist != NULL) {
+    totalBlocks++;
+    freeBlocks++;
+    totalMem += freelist->size;
+    freeMem += freelist->size;
+    freelist = freelist->next;
+  }
+  for(int i=0; i<len; i++) {
+    if(buffer[i]!= NULL){
+      struct chunk* ptr = (struct chunk*)((struct chunk*) buffer[i] - 1);
+      totalBlocks++;
+      usedBlocks++;
+      totalMem += ptr->size;
+      usedMemAloc += ptr->size;
+      usedMem += ptr->used;
+    }
+  }
+  float underUt = 1 - (float) usedMem/usedMemAloc;
+  printf("Total Blocks: %d Free Blocks: %d Used Blocks: %d\nTotal Memory Allocated: %d Free Memory: %d Used Memory: %d\nUnderutilized Memory: %f\n",
+        totalBlocks, freeBlocks, usedBlocks, totalMem, freeMem, usedMem, underUt);
 }
 
 int main ( int argc, char* argv[]) {
